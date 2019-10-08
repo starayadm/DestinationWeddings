@@ -1,0 +1,257 @@
+@import "fonts"
+@import "vars"
+@import "functions"
+@import "_mixins/_media-queries.sass"
+@import "_mixins/_button-reset"
+
+.page
+	position: relative
+	box-sizing: border-box
+	font-size: 16px
+	::selection
+		background-color: #9F999D
+	
+*
+	box-sizing: inherit
+	&::before, &::after
+		box-sizing: inherit
+
+.page__body
+	position: relative
+	display: flex
+	flex-direction: column
+	min-width: 320px
+	height: 100vh
+	font-family: $default-font
+	font-weight: 400
+	line-height: 1.4
+	color: $text-color
+	background-color: $bg-color
+	word-wrap: break-word
+
+.js-focus-visible :focus:not(.focus-visible) // focus-visible polyfill
+  outline: 0
+
+.focus-visible
+	outline: 2px dotted #fff
+
+[type="button"].focus-visible // for firefox
+	outline: 2px dotted #fff
+
+// a[href]:not([class])
+// 	&:link
+// 		color: $black
+// 	&:visited
+// 		color: $second-color
+// 	&:hover
+// 		color: $accent-color
+// 	&:active
+// 		color: darken($accent-color, 20%)
+
+picture
+	display: inline-block
+	line-height: 0
+
+.responsive-img
+	display: block
+	max-width: 100%
+	height: auto
+
+.page__wrapper
+	width: 100%
+	margin:
+		right: auto
+		left: auto
+	padding: 0 rem(10)
+	@include respond-at(375px)
+		max-width: 320px
+	@include respond-at(576px)
+		max-width: 480px
+	@include respond-at(768px)
+		max-width: 640px
+	@include respond-at(1024px)
+		max-width: 960px
+	@include respond-at(1440px)
+		max-width: 1280px
+	@include respond-at(1920px)
+		max-width: 1760px
+
+.btn
+	@include button-reset
+	position: relative
+	z-index: 1
+	max-width: rem(268)
+	width: 100%
+	padding: rem(25) rem(35)
+	font-family: $title-font
+	font-size: rem(14)
+	font-weight: 800
+	letter-spacing: 1px
+	text-align: center
+	text-decoration: none
+	color: $inverse-color
+	background-color: $accent-color
+	border-radius: rem(30)
+	text-shadow: 0 1px #872c55
+	transition: background-color 0.5s ease
+	&:hover
+		background-color: #872C55
+	&.focus-visible
+		outline: 0
+		background-color: #872C55
+	@include respond-at(1024px)
+		max-width: rem(383)
+		padding: rem(25) rem(67)
+		font-size: rem(18)
+	@include respond-at(1440px)
+		max-width: rem(464)
+		font-size: rem(24)
+	&::after
+		position: absolute
+		top: 3px
+		left: 0
+		z-index: -1
+		display: block
+		max-width: rem(464)
+		width: 100%
+		height: 100%
+		background-color: $accent-color
+		border-bottom: 2px solid #872C55
+		border-radius: rem(30)
+		content: ""
+		box-shadow: 0 rem(14) rem(25) rgba(#962458, 0.65)
+		opacity: 1
+		transition: opacity 0.5s ease
+	&:hover
+		&::after
+			opacity: 0
+	&.focus-visible
+		&::after
+			outline: 0
+			opacity: 0
+
+@media (hover: none)
+	.btn
+		&:hover
+			background-color: inherit
+		&:hover
+			&::after
+				opacity: inherit
+
+.page__content
+	flex: 1 0 auto
+
+// Page Header
+
+.page__header
+	padding: rem(30) 0 rem(25)
+
+.header-container
+	display: flex
+	justify-content: space-between
+	align-items: center
+
+.logo
+	width: rem(86)
+	height: rem(22)
+	@include respond-at(768px)
+		width: rem(128)
+		height: rem(35)
+
+.phone
+	font-family: $title-font
+	font-size: rem(18)
+	text-decoration: none
+	color: $inverse-color
+	letter-spacing: rem(0.8)
+	@include respond-at(768px)
+		font-size: rem(25)
+
+// Section 1
+
+.hero
+	position: relative
+	z-index: 1
+	margin-bottom: rem(25)
+	background-image: url("../img/bg/@1x/1.jpg")
+	background-position: center center
+	background-size: cover
+	background-repeat: no-repeat
+	border-radius: rem(30)
+	&::after
+		position: absolute
+		top: 0
+		left: 0
+		z-index: -1
+		display: block
+		width: 100%
+		height: 100%
+		background-color: rgba($lavender, 0.5)
+		content: ""
+		border-radius: rem(30)
+
+.hero__content
+	max-width: rem(300)
+	margin: 0 auto
+	padding-top: rem(40)
+	padding-bottom: rem(276)
+	text-align: center
+	@include respond-at(768px)
+		max-width: rem(460)
+		margin-left: rem(80)
+		padding-top: rem(60)
+		text-align: left
+	@include respond-at(1024px)
+		max-width: rem(595)
+		padding-top: rem(90)
+	@include respond-at(1440px)
+		max-width: rem(890)
+
+.hero__title
+	margin-top: 0
+	margin-bottom: rem(20)
+	font-family: $title-font
+	font-size: rem(20)
+	font-weight: 900
+	line-height: 1.2
+	letter-spacing: rem(0.8)
+	@include respond-at(576px)
+		font-size: rem(22)
+	@include respond-at(768px)
+		margin-bottom: rem(24)
+		font-size: rem(35)
+	@include respond-at(1024px)
+		font-size: rem(45)
+	@include respond-at(1440px)
+		font-size: rem(64)
+
+.hero__descriptor
+	margin-top: 0
+
+.hero__descriptor
+	margin-bottom: rem(45)
+	font-size: rem(14)
+	font-style: italic
+	@include respond-at(576px)
+		font-size: rem(16)
+	@include respond-at(768px)
+		margin-bottom: rem(64)
+		font-size: rem(20)
+	@include respond-at(1024px)
+		font-size: rem(27)
+	@include respond-at(1440px)
+		max-width: rem(540)
+		font-size: rem(33)
+
+.note
+	margin: rem(20) 0 0
+	font-size: rem(14)
+	@include respond-at(768px)
+		max-width: rem(268)
+		text-align: center
+	@include respond-at(1024px)
+		text-align: left
+	@include respond-at(1440px)
+		max-width: rem(464)
+		font-size: rem(16)
+		text-align: center
