@@ -46,17 +46,72 @@
 
 					<div class="hero__content">
 
-							<h1 class="hero__title">Свадебные торжества в&nbsp;самых запоминающихся местах мира</h1>
+							<h1 class="h1">Свадебные торжества в&nbsp;самых запоминающихся местах мира</h1>
 
 							<p class="hero__descriptor">Пройдите тест и&nbsp;получите варианты мест для вашей свадьбы и&nbsp;расчёт стоимости</p>
 
 							<a href="#" class="btn">Ответить на вопросы</a>
 
-							<p class="note">*Это займёт от&nbsp;2 до&nbsp;5&nbsp;мин.</p>
+							<p class="hero__note">*Это займёт от&nbsp;2 до&nbsp;5&nbsp;мин.</p>
 
-							<img src="" alt="#" class="responsive-img">
+							<picture>
+								<source type="image/webp" data-srcset="./img/content/@1x/main-couple.webp 1x, ./img/content/@2x/main-couple@2x.webp 2x">
+								<source data-srcset="./img/content/@1x/main-couple.png 1x, ./img/content/@2x/main-couple@2x.png 2x">
+								<img alt="Жених и невеста стоят на фоне средневекового замка." class="lazy hero__img"
+								data-src="./img/content/@1x/main-couple.png"
+								data-srcset="./img/content/@2x/main-couple@2x.png">
+							</picture>
 
 					</div>
+
+				</div>
+
+				<div class="hero-footer">
+
+					<ul class="socialmedia">
+
+						<li class="socialmedia__item">
+							<a href="#" class="socialmedia__link">
+								<svg class="socialmedia__img" aria-hidden="true">
+									<use xlink:href="./img/icons/svg-sprite/svg-sprite.svg#facebook"></use>
+								</svg>
+							</a>
+						</li>	
+
+						<li class="socialmedia__item">
+							<a href="#" class="socialmedia__link">
+								<svg class="socialmedia__img" aria-hidden="true">
+									<use xlink:href="./img/icons/svg-sprite/svg-sprite.svg#instagram"></use>
+								</svg>
+							</a>
+						</li>
+
+						<li class="socialmedia__item">
+							<a href="#" class="socialmedia__link">
+								<svg class="socialmedia__img" aria-hidden="true">
+									<use xlink:href="./img/icons/svg-sprite/svg-sprite.svg#twitter"></use>
+								</svg>
+							</a>
+						</li>
+
+						<li class="socialmedia__item">
+							<a href="#" class="socialmedia__link">
+								<svg class="socialmedia__img" aria-hidden="true">
+									<use xlink:href="./img/icons/svg-sprite/svg-sprite.svg#youtube"></use>
+								</svg>
+							</a>
+						</li>
+
+					</ul>
+
+					<ul class="languages">
+						<li class="languages__item">
+							<a href="#" class="languages__link" id="en">En</a>
+						</li>
+						<li class="languages__item">
+							<a href="#" class="languages__link" id="ru">Ru</a>
+						</li>
+					</ul>
 
 				</div>
 
@@ -70,6 +125,8 @@
 
 	<!--build:js js/main.min.js -->
 	<script src="./libs/focus-visible/focus-visible.min.js"></script>
+	<script src="./libs/lazyload/lazyload.min.js"></script>
+	<script src="./libs/svgxuse/svgxuse.min.js"></script>
 	<script src="js/common.js"></script>
 	<!-- endbuild -->
 
