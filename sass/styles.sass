@@ -1,0 +1,947 @@
+@import "fonts"
+@import "vars"
+@import "functions"
+@import "_mixins/_media-queries.sass"
+@import "_mixins/_button-reset"
+
+.page
+	position: relative
+	box-sizing: border-box
+	font-size: 16px
+	::selection
+		background-color: #9F999D
+	
+*
+	box-sizing: inherit
+	&::before, &::after
+		box-sizing: inherit
+
+.page__body
+	position: relative
+	display: flex
+	flex-direction: column
+	min-width: 320px
+	height: 100vh
+	font-family: $default-font
+	font-weight: 400
+	line-height: 1.4
+	color: $text-color
+	background-color: $bg-color
+	word-wrap: break-word
+
+.js-focus-visible :focus:not(.focus-visible) // focus-visible polyfill
+  outline: 0
+
+.focus-visible
+	outline: 2px dotted #fff
+
+[type="button"].focus-visible // for firefox
+	outline: 2px dotted #fff
+
+// a[href]:not([class])
+// 	&:link
+// 		color: $black
+// 	&:visited
+// 		color: $second-color
+// 	&:hover
+// 		color: $accent-color
+// 	&:active
+// 		color: darken($accent-color, 20%)
+
+picture
+	display: inline-block
+	line-height: 0
+
+.responsive-img
+	display: block
+	max-width: 100%
+	height: auto
+
+.page__wrapper
+	width: 100%
+	margin:
+		right: auto
+		left: auto
+	padding: 0 rem(10)
+	@include respond-at(375px)
+		max-width: 95%
+	// @include respond-at(1440px)
+	// 	max-width: rem(1260)
+	// @include respond-at(1920px)
+	// 	max-width: rem(1740)
+
+.page__wrapper > div
+	border-radius: rem(30)
+
+.btn
+	@include button-reset
+	position: relative
+	z-index: 100
+	max-width: rem(268)
+	width: 100%
+	padding: rem(25) rem(32)
+	font-family: $title-font
+	font-size: rem(14)
+	font-weight: 800
+	letter-spacing: 1px
+	text-align: center
+	text-decoration: none
+	color: $inverse-color
+	background-color: $accent-color
+	border-radius: rem(30)
+	text-shadow: 0 1px #872c55
+	transition: background-color 0.5s ease
+	&:hover
+		background-color: #872C55
+	&.focus-visible
+		outline: 0
+		background-color: #872C55
+	@include respond-at(1024px)
+		max-width: rem(383)
+		padding: rem(25) rem(67)
+		font-size: rem(18)
+	@include respond-at(1440px)
+		max-width: rem(464)
+		font-size: rem(24)
+	&::after
+		position: absolute
+		top: 3px
+		left: 0
+		z-index: -1
+		display: block
+		max-width: rem(464)
+		width: 100%
+		height: 100%
+		background-color: $accent-color
+		border-bottom: 2px solid #872C55
+		border-radius: rem(30)
+		content: ""
+		box-shadow: 0 0 rem(25) rgba(#962458, 0.45)
+		opacity: 1
+		transition: opacity 0.25s ease
+	&:hover
+		&::after
+			opacity: 0
+	&.focus-visible
+		&::after
+			outline: 0
+			opacity: 0
+
+@media (hover: none)
+	.btn
+		&:hover
+			background-color: inherit
+		&:hover
+			&::after
+				opacity: inherit
+
+.page__content
+	flex: 1 0 auto
+
+// Page Header
+
+.page__header
+	padding: rem(30) 0 rem(25)
+
+.header-container
+	display: flex
+	justify-content: space-between
+	align-items: center
+
+.logo
+	width: rem(86)
+	height: rem(22)
+	@include respond-at(768px)
+		width: rem(128)
+		height: rem(35)
+
+.phone
+	font-family: $title-font
+	font-size: rem(18)
+	text-decoration: none
+	color: $inverse-color
+	letter-spacing: rem(0.8)
+	transition: color 0.5s ease
+	@include respond-at(768px)
+		font-size: rem(25)
+	&:hover
+		color: $accent-color
+	&.focus-visible
+		outline: 0
+		color: $accent-color
+
+@media (hover: none)
+	.phone
+		&:hover
+			color: $inverse-color
+
+.section
+	&:not(:first-of-type)
+		padding: rem(20) 0
+		@include respond-at(576px)
+			padding: rem(40) 0
+		@include respond-at(1024px)
+			padding: rem(60) 0
+
+.hero,
+.about,
+.organization
+	position: relative
+	z-index: 1
+	background-position: center center
+	background-size: cover
+	background-repeat: no-repeat
+	overflow: hidden
+	&::after
+		position: absolute
+		top: 0
+		left: 0
+		z-index: -1
+		display: block
+		width: 100%
+		height: 100%
+		background-color: rgba($lavender, 0.5)
+		content: ""
+		border-radius: rem(30)
+
+// Section 1
+
+.hero
+	margin-bottom: rem(25)
+	background-image: url("../img/bg/@1x/1-900.jpg")
+	@include respond-at(900px)
+		background-image: url("../img/bg/@1x/1-1920.jpg")
+	@include retina(320)
+		background-image: url("../img/bg/@1x/1-900@2x.jpg")
+	@include retina(900)
+		background-image: url("../img/bg/@2x/1-1920@2x.jpg")
+
+.hero__content
+	max-width: rem(300)
+	margin: 0 auto
+	padding-bottom: rem(291)
+	text-align: center
+	@include respond-at(576px)
+		padding-bottom: rem(304)
+	@include respond-at(768px)
+		max-width: rem(460)
+		padding-bottom: rem(345)
+	@include respond-at(1024px)
+		max-width: rem(595)
+		margin-left: rem(80)
+		padding-bottom: rem(485)
+		text-align: left
+	@include respond-at(1440px)
+		max-width: rem(890)
+		padding-bottom: rem(576)
+	@include respond-at(1920px)
+		padding-bottom: rem(190)
+
+.h1, .h2, .h3, ul
+	margin-bottom: rem(10)
+	@include respond-at(1440px)
+		margin-bottom: rem(12)		
+	@include respond-at(1920px)
+		margin-bottom: rem(17)		
+
+.h1, .h2
+	font-family: $title-font
+	font-weight: 900
+	line-height: 1.2
+	letter-spacing: rem(0.8)
+
+.h1
+	margin-top: rem(60)
+	font-size: rem(28)
+	@include respond-at(768px)
+		font-size: rem(35)
+	@include respond-at(1024px)
+		font-size: rem(45)
+	@include respond-at(1440px)
+		margin-top: rem(66)
+		font-size: rem(64)
+	@include respond-at(1920px)
+		margin-top: rem(90)
+
+.h2
+	margin-top: rem(40)
+	font-size: rem(20)
+	@include respond-at(576px)
+		font-size: rem(23)
+	@include respond-at(768px)
+		margin-top: rem(60)
+	@include respond-at(1024px)
+		margin-top: rem(90)
+		font-size: rem(43)
+	@include respond-at(1440px)
+		font-size: rem(60)
+	@include respond-at(1920px)
+		font-size: rem(64)
+	span
+		background-color: $accent-color
+		color: $inverse-color
+
+.h3
+	margin-top: rem(20)
+	@include respond-at(1440px)
+		margin-top: rem(22)
+
+.text
+	margin-top: 0
+	margin-bottom: rem(20)
+	font-size: rem(14)
+	@include respond-at(1440px)
+		margin-bottom: rem(22)
+		font-size: rem(16)
+	@include respond-at(1920px)
+		margin-bottom: rem(35)
+		font-size: rem(22)
+		line-height: 1.6
+
+.hero__descriptor
+	margin-top: 0
+
+.hero__descriptor
+	margin-bottom: rem(60)
+	font-size: rem(14)
+	font-style: italic
+	@include respond-at(576px)
+		font-size: rem(16)
+	@include respond-at(768px)
+		font-size: rem(20)
+	@include respond-at(1024px)
+		font-size: rem(27)
+	@include respond-at(1440px)
+		max-width: rem(540)
+		margin-bottom: rem(66)
+		font-size: rem(33)
+
+.hero__note
+	margin: rem(20) 0 0
+	font-size: rem(14)
+	text-align: center
+	@include respond-at(1024px)
+		max-width: rem(383)
+	@include respond-at(1440px)
+		max-width: rem(464)
+		margin: rem(22) 0 0
+		font-size: rem(16)
+	
+.hero__img
+	position: absolute
+	right: rem(-83)
+	bottom: 0
+	display: block
+	height: auto
+	max-width: rem(547)
+	object-fit: cover
+	@include respond-at(576px)
+		right: 0
+	@include respond-at(768px)
+		max-width: rem(619)
+	@include respond-at(1024px)
+		max-width: rem(940)
+	@include respond-at(1440px)
+		max-width: rem(1260)
+	@include respond-at(1920px)
+		max-width: rem(1220)
+
+.hero-footer
+	margin-bottom: rem(30)
+	display: flex
+	flex-direction: column
+	flex-wrap: wrap
+	@include respond-at(576px)
+		flex-direction: row
+		justify-content: space-between
+		align-items: center
+
+.socialmedia,
+.languages
+	margin-top: 0
+	padding: 0
+
+.socialmedia
+	display: flex
+	justify-content: center
+	align-items: center
+	line-height: 0
+	@include respond-at(576px)
+		margin-bottom: 0
+
+.socialmedia__item,
+.languages__item
+	list-style: none
+
+.socialmedia__item
+	&:not(:last-of-type)
+		margin-right: rem(30)
+
+.socialmedia__link
+	display: block
+
+.socialmedia__img
+	width: rem(33)
+	height: rem(33)
+	fill: $inverse-color
+	transition: fill 0.5s ease
+
+.socialmedia__link
+	&:hover
+		.socialmedia__img
+			fill: $accent-color
+	&.focus-visible
+		outline: 0
+		.socialmedia__img
+			fill: $accent-color
+
+@media (hover: none)
+	.socialmedia__link
+		&:hover
+			.socialmedia__img
+				color: $inverse-color
+
+.languages
+	display: flex
+	justify-content: center
+	flex-wrap: wrap
+	margin-bottom: 0
+	font-size: rem(20)
+	font-style: italic
+	color: $inverse-color
+	@include respond-at(1440px)
+		font-size: rem(25)
+
+.languages__item
+	position: relative
+	&:not(:last-of-type)
+		margin-right: rem(28)
+		&::after
+			position: absolute
+			right: rem(-17)
+			top: 0
+			display: block
+			content: "/"
+
+.languages__link
+	color: $inverse-color
+	text-decoration: none
+	transition: color 0.5s ease
+	&:hover
+		color: $accent-color
+	&.focus-visible
+		outline: 0
+		color: $accent-color
+
+@media (hover: none)
+	.languages__link
+		&:hover
+			color: inherit
+
+// Section 2
+
+.facts
+	display: flex
+	flex-direction: column
+	flex-wrap: wrap
+	padding: rem(20) 0
+	background-color: $inverse-color
+	text-align: center
+	@include respond-at(1024px)
+		flex-direction: row
+		justify-content: center
+		padding: rem(60) 0
+
+.facts__item
+	@include respond-at(1024px)
+		flex-basis: 50%
+	@include respond-at(1440px)
+		flex: 1
+	&:not(:last-of-type)
+		margin-bottom: rem(30)
+		@include respond-at(1440px)
+			margin-bottom: 0
+
+.facts__pic
+	position: relative
+	width: rem(204)
+	height: rem(204)
+	margin: 0 auto rem(20)
+	background-color: $lavender
+	border-radius: 50%
+	box-shadow: 0 rem(14) rem(25) rgba($bg-color, 0.45)
+	overflow: hidden
+	@include respond-at(576px)
+		width: rem(298)
+		height: rem(298)
+		margin-bottom: rem(25)
+	@include respond-at(1920px)
+		width: rem(395)
+		height: rem(395)
+
+.facts__item
+	&:nth-of-type(2)
+		.facts__pic
+			background-color: $light-violet
+
+.facts__img
+	position: absolute
+	bottom: 0
+	left: 0
+
+.facts__item
+	&:last-of-type
+		.facts__pic
+			background-color: $bg-color
+		.facts__img
+			top: 0
+
+.facts__text
+	max-width: rem(265)
+	margin: 0 auto
+	font-size: rem(15)
+	font-weight: 700
+	@include respond-at(576px)
+		max-width: rem(299)
+		font-size: rem(18)
+	@include respond-at(1440px)
+		max-width: rem(340)
+		font-size: rem(20)
+		line-height: 1.2
+	@include respond-at(1920px)
+		max-width: rem(430)
+		font-size: rem(26)
+	span
+		font-family: $title-font
+		font-size: rem(22)
+		font-weight: 700
+		color: $accent-color
+		@include respond-at(576px)
+			font-size: rem(28)
+		@include respond-at(1440px)
+			font-size: rem(38)
+		@include respond-at(1920px)
+			font-size: rem(48)
+
+// Section 3
+
+.about
+	background-color: $lavender
+	@include respond-at(1024px)
+		background-image: url("../img/bg/@1x/3-1920.jpg")
+	@include retina(1024)
+		background-image: url("../img/bg/@2x/3-1920@2x.jpg")
+	&::after
+		opacity: 0
+		@include respond-at(1024px)
+			background-color: transparent
+			background-image: linear-gradient(90deg, $lavender 0%, rgba($lavender, 0.5) 100%)
+			opacity: 1
+
+.about__content
+	text-align: center
+	@include respond-at(1024px)
+		margin-left: rem(80)
+		margin-bottom: rem(90)
+		text-align: left
+	.h2
+		max-width: rem(300)
+		margin:
+			left: auto
+			right: auto
+		@include respond-at(576px)
+			text-align: left
+		@include respond-at(1024px)
+			margin:
+				left: 0
+				right: 0
+		@include respond-at(768px)
+			max-width: rem(460)
+		@include respond-at(1024px)
+			max-width: rem(780)
+		@include respond-at(1440px)
+			max-width: rem(1100)
+		@include respond-at(1920px)
+			max-width: rem(1180)
+
+.about__text
+	max-width: rem(250)
+	margin:
+			left: auto
+			right: auto
+			bottom: rem(40)
+	text-align: left
+	@include respond-at(576px)
+		max-width: rem(300)
+		margin-bottom: rem(42)
+	@include respond-at(768px)
+		max-width: rem(460)
+	@include respond-at(1024px)
+		margin:
+				left: 0
+				right: 0
+				bottom: rem(62)
+	@include respond-at(1920px)
+		max-width: rem(780)
+
+.about__pic
+	position: relative
+	z-index: 1
+	padding-top: rem(25)
+	background-image: url("../img/bg/@1x/3-900.jpg")
+	background-position: center center
+	background-size: cover
+	background-repeat: no-repeat
+	line-height: 0
+	overflow: hidden
+	border-radius: rem(30)
+	@include respond-at(1024px)
+		position: absolute
+		bottom: 0
+		right: 0
+		padding-top: 0
+		background-image: none
+	@include respond-at(1440px)
+		right: 12%
+	@include retina(320)
+		background-image: url("../img/bg/@1x/3-900@2x.jpg")
+	@include retina(1024)
+		background-image: none
+	&::after
+		position: absolute
+		top: 0
+		left: 0
+		z-index: -1
+		display: block
+		width: 100%
+		height: 100%
+		background-image: linear-gradient(180deg, $lavender 0%, rgba($lavender, 0.5) 10%)
+		content: ""
+		@include respond-at(1024px)
+			opacity: 0
+
+.about__img
+	width: 50%
+	margin: 0 auto
+	@include respond-at(1024px)
+		width: 60%
+	@include respond-at(1440px)
+		width: 70%
+	@include respond-at(1920px)
+		width: 100%
+
+// Section-4
+
+.organization
+	background-image: url("../img/bg/@1x/4-900.jpg")
+	@include respond-at(900px)
+		background-image: url("../img/bg/@1x/4-1920.jpg")
+	@include retina(320)
+		background-image: url("../img/bg/@1x/4-900@2x.jpg")
+	@include retina(900)
+		background-image: url("../img/bg/@2x/4-1920@2x.jpg")
+
+.organization
+	.h2
+		max-width: rem(280)
+		margin:
+			left: auto
+			right: auto
+			bottom: rem(35)
+		text-align: center
+		@include respond-at(1024px)
+			max-width: rem(400)
+			margin-bottom: rem(55)
+		@include respond-at(1440px)
+			max-width: rem(500)
+		@include respond-at(1920px)
+			max-width: rem(780)
+
+.organization__content
+	display: flex
+	flex-flow: column wrap
+	align-items: center
+	margin: 0 auto rem(40)
+	@include respond-at(768px)
+		margin-bottom: rem(60)
+	@include respond-at(1024px)
+		max-width: rem(700)
+		flex-direction: row
+		justify-content: space-between
+	@include respond-at(1440px)
+		max-width: rem(1100)
+
+.organization__item
+	position: relative
+	min-width: rem(245)
+	min-height: rem(245)
+	background-color: $inverse-color
+	border: 7px solid $accent-color
+	border-radius: rem(30)
+	@include respond-at(576px)
+		min-width: rem(300)
+		min-height: rem(300)
+	&:not(:last-of-type)
+		margin-bottom: rem(30)
+	&:last-of-type
+		@include respond-at(1024px)
+			margin-bottom: rem(30)
+	&::after
+			position: absolute
+			left: 50%
+			top: rem(7)
+			font-family: $title-font
+			font-weight: 700
+			font-size: rem(85)
+			line-height: 1.2
+			color: $bg-numbers-color
+			content: attr(data-number)
+			transform: translateX(-50%)
+			@include respond-at(576px)
+				top: rem(-17)
+				font-size: rem(115)
+
+.organization__item
+	.h3
+		max-width: rem(195)
+		margin: rem(43) auto rem(24)
+		font-family: $title-font
+		font-size: rem(17)
+		font-weight: 700
+		line-height: 1.1
+		text-align: center
+		@include respond-at(576px)
+			max-width: rem(217)
+			font-size: rem(19)
+
+.organization__item
+	.text
+		max-width: rem(207)
+		margin: 0 auto rem(24)
+		@include respond-at(576px)
+			max-width: rem(217)
+			margin-bottom: rem(28)
+			font-size: rem(16)
+
+// Section 4
+
+.script
+	background-color: $lavender
+	overflow: hidden
+
+.swiper-container
+	width: 100%
+	height: 100%
+
+.script__container
+	display: flex
+	flex-direction: column
+	@include respond-at(768px)
+		flex-direction: row
+
+.script__content
+	@include respond-at(768px)
+		order: 2
+		flex: 1 1 100%
+	.h2
+		max-width: rem(250)
+		margin:
+			left: auto
+			right: auto
+		text-align: center
+		@include respond-at(576px)
+			max-width: rem(270)
+		@include respond-at(768px)
+			max-width: rem(300)
+			text-align: left
+		@include respond-at(1024px)
+			max-width: rem(370)
+		@include respond-at(1440px)
+			max-width: rem(440)
+		@include respond-at(1920px)
+			max-width: rem(700)
+
+.script__text,
+.price
+	max-width: rem(250)
+	margin:
+			left: auto
+			right: auto
+	@include respond-at(576px)
+		max-width: rem(300)
+	@include respond-at(1024px)
+		max-width: rem(370)
+	@include respond-at(1440px)
+		max-width: rem(440)
+	@include respond-at(1920px)
+		max-width: rem(700)
+
+.price
+	display: flex
+	justify-content: space-between
+	align-items: baseline
+	margin-bottom: rem(40)
+	font-family: $title-font
+	font-weight: 700
+	@include respond-at(1024px)
+		margin-bottom: rem(60)
+	@include respond-at(1440px)
+		margin-bottom: rem(62)
+
+.price__title,
+.price__amount
+	margin: 0
+
+.price__title
+	font-size: rem(14)
+	@include respond-at(1024px)
+		font-size: rem(20)
+
+.price__amount
+	font-size: rem(19)
+	font-weight: 900
+	letter-spacing: rem(1)
+	@include respond-at(1024px)
+		font-size: rem(28)
+
+.script__btn
+	position: relative
+	z-index: 100
+	width: 100%
+	text-align: center
+	@include respond-at(768px)
+		margin-bottom: rem(30)
+	.btn
+		width: auto
+
+@supports (width: unset)
+	.script__btn
+		.btn
+			width: unset
+		
+.script__pic
+	position: relative
+	display: flex
+	flex-direction: column
+	flex-shrink: 0
+	flex-basis: auto
+	line-height: 0
+	overflow: hidden
+	@include respond-at(768px)
+		order: 1
+		flex: 1 1 100%
+	&::after
+		position: absolute
+		top: 0
+		left: 0
+		display: block
+		width: 100%
+		height: 100%
+		background-image: linear-gradient(180deg, $lavender 4%, rgba($lavender, 0) 23%)
+		content: ""
+		@include respond-at(768px)
+			background-image: linear-gradient(270deg, $lavender 4%, rgba($lavender, 0) 23%)
+	picture
+		flex-shrink: 0
+		flex-basis: auto
+		
+.script__img
+	@include respond-at(768px)
+		min-width: rem(310)
+		min-height: rem(730)
+		object-fit: cover
+		object-position: left
+		font-family: "object-fit: cover; object-position: left;"
+
+.swiper-pagination-bullet
+	width: rem(12)
+	height: rem(12)
+	background: $accent-color
+
+.swiper-container-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet
+	margin: 0 rem(8)
+
+.swiper-button-prev,
+.swiper-button-next
+	opacity: 0
+	@include respond-at(768px)
+		opacity: 1
+		color: $accent-color
+
+.swiper-button-next:after, .swiper-button-prev:after
+	display: block
+
+// Section 6
+
+.contacts
+	background-color: $inverse-color
+
+.contacts__container
+	margin-left: auto
+	margin-right: auto
+	overflow: hidden
+	.h2
+		max-width: rem(250)
+		margin-left: auto
+		margin-right: auto
+		text-align: center
+
+.form
+	text-align: center
+	margin-bottom: rem(20)
+
+.form__input
+	padding-top: 0
+	padding-bottom: rem(7)
+	font-size: rem(17)
+	color: $input-border-color
+	background-color: transparent
+	border-left-width: 0
+	border-right-width: 0
+	border-top-width: 0
+	border-bottom: 2px solid $input-border-color
+	&:not(:last-of-type)
+		margin-bottom: rem(40)
+	&:last-of-type
+		margin-bottom: rem(45)
+
+.contacts__flex
+	max-width: rem(250)
+	margin-left: auto
+	margin-right: auto
+
+.contacts__list
+	margin-bottom: rem(40)
+	padding: 0
+
+.contacts__item
+	position: relative
+	list-style: none
+	.text
+		padding-left: rem(20)
+
+.contacts__img
+	position: absolute
+	top: 0
+	left: 0
+	width: rem(12)
+	height: rem(12)
+	fill: $inverse-color
+	stroke: rgba($text-color, 0.5)
+
+.contacts__link
+	color: $text-color
+
+.policy
+	margin-bottom: rem(20)
+	font-size: rem(10)
+	color: $text-color
+
+
+
+
+
+
+
+
+
