@@ -15,6 +15,8 @@ var swiper = new Swiper('.swiper-container', {
 	slidesPerView: 1,
   spaceBetween: 60,
 	loop: true,
+	preloadImages: false,
+	lazy: true,
 	effect: 'flip',
 	flipEffect: {
     slideShadows: false,

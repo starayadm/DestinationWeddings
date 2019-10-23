@@ -78,10 +78,10 @@
   outline: 0; }
 
 .focus-visible {
-  outline: 2px dotted #fff; }
+  outline: 2px dotted #112351; }
 
 [type="button"].focus-visible {
-  outline: 2px dotted #fff; }
+  outline: 2px dotted #112351; }
 
 picture {
   display: inline-block;
@@ -100,6 +100,9 @@ picture {
   @media only screen and (min-width: 375px) {
     .page__wrapper {
       max-width: 95%; } }
+  @media only screen and (min-width: 1920px) {
+    .page__wrapper {
+      max-width: 115rem; } }
 
 .page__wrapper > div {
   border-radius: 1.875rem; }
@@ -223,6 +226,9 @@ picture {
     .section:not(:first-of-type) {
       padding: 3.75rem 0; } }
 
+.section:last-of-type {
+  padding-bottom: 0; }
+
 .hero,
 .about,
 .organization {
@@ -247,17 +253,7 @@ picture {
     border-radius: 1.875rem; }
 
 .hero {
-  margin-bottom: 1.5625rem;
-  background-image: url("../img/bg/@1x/1-900.jpg"); }
-  @media only screen and (min-width: 900px) {
-    .hero {
-      background-image: url("../img/bg/@1x/1-1920.jpg"); } }
-  @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 320), only screen and (min-resolution: 192dpi) and (min-width: 320), only screen and (min-resolution: 2dppx) and (min-width: 320) {
-    .hero {
-      background-image: url("../img/bg/@1x/1-900@2x.jpg"); } }
-  @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 900), only screen and (min-resolution: 192dpi) and (min-width: 900), only screen and (min-resolution: 2dppx) and (min-width: 900) {
-    .hero {
-      background-image: url("../img/bg/@2x/1-1920@2x.jpg"); } }
+  margin-bottom: 1.5625rem; }
 
 .hero__content {
   max-width: 18.75rem;
@@ -608,9 +604,6 @@ picture {
   @media only screen and (min-width: 1024px) {
     .about {
       background-image: url("../img/bg/@1x/3-1920.jpg"); } }
-  @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 1024), only screen and (min-resolution: 192dpi) and (min-width: 1024), only screen and (min-resolution: 2dppx) and (min-width: 1024) {
-    .about {
-      background-image: url("../img/bg/@2x/3-1920@2x.jpg"); } }
   .about::after {
     opacity: 0; }
     @media only screen and (min-width: 1024px) {
@@ -693,12 +686,6 @@ picture {
   @media only screen and (min-width: 1440px) {
     .about__pic {
       right: 12%; } }
-  @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 320), only screen and (min-resolution: 192dpi) and (min-width: 320), only screen and (min-resolution: 2dppx) and (min-width: 320) {
-    .about__pic {
-      background-image: url("../img/bg/@1x/3-900@2x.jpg"); } }
-  @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 1024), only screen and (min-resolution: 192dpi) and (min-width: 1024), only screen and (min-resolution: 2dppx) and (min-width: 1024) {
-    .about__pic {
-      background-image: none; } }
   .about__pic::after {
     position: absolute;
     top: 0;
@@ -725,18 +712,6 @@ picture {
   @media only screen and (min-width: 1920px) {
     .about__img {
       width: 100%; } }
-
-.organization {
-  background-image: url("../img/bg/@1x/4-900.jpg"); }
-  @media only screen and (min-width: 900px) {
-    .organization {
-      background-image: url("../img/bg/@1x/4-1920.jpg"); } }
-  @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 320), only screen and (min-resolution: 192dpi) and (min-width: 320), only screen and (min-resolution: 2dppx) and (min-width: 320) {
-    .organization {
-      background-image: url("../img/bg/@1x/4-900@2x.jpg"); } }
-  @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 900), only screen and (min-resolution: 192dpi) and (min-width: 900), only screen and (min-resolution: 2dppx) and (min-width: 900) {
-    .organization {
-      background-image: url("../img/bg/@2x/4-1920@2x.jpg"); } }
 
 .organization .h2 {
   max-width: 17.5rem;
@@ -992,9 +967,6 @@ picture {
       opacity: 1;
       color: #962458; } }
 
-.swiper-button-next:after, .swiper-button-prev:after {
-  display: block; }
-
 .contacts {
   background-color: #EEEDEB; }
 
@@ -1006,16 +978,46 @@ picture {
     max-width: 15.625rem;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 1.25rem;
     text-align: center; }
+    @media only screen and (min-width: 576px) {
+      .contacts__container .h2 {
+        max-width: 23.125rem; } }
+    @media only screen and (min-width: 1024px) {
+      .contacts__container .h2 {
+        max-width: 48.75rem;
+        margin-bottom: 3.125rem; } }
+    @media only screen and (min-width: 1440px) {
+      .contacts__container .h2 {
+        max-width: 56.25rem; } }
 
 .form {
-  text-align: center;
-  margin-bottom: 1.25rem; }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 15.625rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2.5rem;
+  text-align: center; }
+  @media only screen and (min-width: 576px) {
+    .form {
+      max-width: 18.75rem; } }
+  @media only screen and (min-width: 768px) {
+    .form {
+      max-width: 28.75rem; } }
+  @media only screen and (min-width: 1024px) {
+    .form {
+      max-width: 36.875rem;
+      flex-direction: row;
+      flex-wrap: wrap; } }
 
 .form__input {
+  width: 100%;
   padding-top: 0;
   padding-bottom: 0.4375rem;
-  font-size: 1.0625rem;
+  font-size: 0.875rem;
   color: rgba(17, 35, 81, 0.75);
   background-color: transparent;
   border-left-width: 0;
@@ -1026,21 +1028,58 @@ picture {
     margin-bottom: 2.5rem; }
   .form__input:last-of-type {
     margin-bottom: 2.8125rem; }
+  @media only screen and (min-width: 1024px) {
+    .form__input:first-of-type {
+      width: 17.0625rem;
+      margin-right: 2.5rem; } }
+  @media only screen and (min-width: 1024px) {
+    .form__input:nth-of-type(2) {
+      width: 17.0625rem; } }
+  .form__input.focus-visible {
+    outline: 0;
+    border-bottom-color: rgba(125, 154, 228, 0.75); }
 
 .contacts__flex {
   max-width: 15.625rem;
   margin-left: auto;
-  margin-right: auto; }
+  margin-right: auto;
+  margin-bottom: 1.25rem; }
+  @media only screen and (min-width: 576px) {
+    .contacts__flex {
+      max-width: 23.125rem; } }
+  @media only screen and (min-width: 768px) {
+    .contacts__flex {
+      max-width: 28.75rem; } }
+  @media only screen and (min-width: 1024px) {
+    .contacts__flex {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 48.75rem; } }
+  @media only screen and (min-width: 1920px) {
+    .contacts__flex {
+      max-width: 62.5rem; } }
 
 .contacts__list {
   margin-bottom: 2.5rem;
   padding: 0; }
+  @media only screen and (min-width: 1024px) {
+    .contacts__list {
+      max-width: 19.0625rem;
+      margin-right: 1.25rem; } }
+  @media only screen and (min-width: 1920px) {
+    .contacts__list {
+      max-width: 30rem; } }
 
 .contacts__item {
   position: relative;
   list-style: none; }
   .contacts__item .text {
     padding-left: 1.25rem; }
+    @media only screen and (min-width: 1920px) {
+      .contacts__item .text {
+        padding-left: 1.625rem; } }
 
 .contacts__img {
   position: absolute;
@@ -1050,11 +1089,48 @@ picture {
   height: 0.75rem;
   fill: #EEEDEB;
   stroke: rgba(17, 35, 81, 0.5); }
+  @media only screen and (min-width: 1920px) {
+    .contacts__img {
+      width: 1.125rem;
+      height: 1.125rem; } }
 
 .contacts__link {
   color: #112351; }
 
+.contacts__map {
+  margin-bottom: 1rem; }
+  @media only screen and (min-width: 1024px) {
+    .contacts__map {
+      max-width: 28.3125rem; } }
+
 .policy {
-  margin-bottom: 1.25rem;
   font-size: 0.625rem;
   color: #112351; }
+
+.footer {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1.5625rem;
+  margin-bottom: 1.875rem; }
+  @media only screen and (min-width: 1024px) {
+    .footer {
+      flex-direction: row;
+      justify-content: space-between; } }
+  .footer .logo,
+  .footer .socialmedia {
+    margin-bottom: 1.25rem; }
+    @media only screen and (min-width: 1024px) {
+      .footer .logo,
+      .footer .socialmedia {
+        margin-bottom: 0; } }
+  @media only screen and (min-width: 1024px) {
+    .footer .logo {
+      order: 2; } }
+  @media only screen and (min-width: 1024px) {
+    .footer .socialmedia {
+      order: 1; } }
+  @media only screen and (min-width: 1024px) {
+    .footer .phone {
+      order: 3; } }

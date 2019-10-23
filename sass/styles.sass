@@ -33,20 +33,10 @@
   outline: 0
 
 .focus-visible
-	outline: 2px dotted #fff
+	outline: 2px dotted $text-color
 
 [type="button"].focus-visible // for firefox
-	outline: 2px dotted #fff
-
-// a[href]:not([class])
-// 	&:link
-// 		color: $black
-// 	&:visited
-// 		color: $second-color
-// 	&:hover
-// 		color: $accent-color
-// 	&:active
-// 		color: darken($accent-color, 20%)
+	outline: 2px dotted $text-color
 
 picture
 	display: inline-block
@@ -65,10 +55,8 @@ picture
 	padding: 0 rem(10)
 	@include respond-at(375px)
 		max-width: 95%
-	// @include respond-at(1440px)
-	// 	max-width: rem(1260)
-	// @include respond-at(1920px)
-	// 	max-width: rem(1740)
+	@include respond-at(1920px)
+		max-width: rem(1840)
 
 .page__wrapper > div
 	border-radius: rem(30)
@@ -182,6 +170,8 @@ picture
 			padding: rem(40) 0
 		@include respond-at(1024px)
 			padding: rem(60) 0
+	&:last-of-type
+		padding-bottom: 0
 
 .hero,
 .about,
@@ -208,13 +198,13 @@ picture
 
 .hero
 	margin-bottom: rem(25)
-	background-image: url("../img/bg/@1x/1-900.jpg")
-	@include respond-at(900px)
-		background-image: url("../img/bg/@1x/1-1920.jpg")
-	@include retina(320)
-		background-image: url("../img/bg/@1x/1-900@2x.jpg")
-	@include retina(900)
-		background-image: url("../img/bg/@2x/1-1920@2x.jpg")
+	// background-image: url("../img/bg/@1x/1-900.jpg")
+	// @include respond-at(900px)
+	// 	background-image: url("../img/bg/@1x/1-1920.jpg")
+	// @include retina(320)
+	// 	background-image: url("../img/bg/@1x/1-900@2x.jpg")
+	// @include retina(900)
+	// 	background-image: url("../img/bg/@2x/1-1920@2x.jpg")
 
 .hero__content
 	max-width: rem(300)
@@ -529,8 +519,8 @@ picture
 	background-color: $lavender
 	@include respond-at(1024px)
 		background-image: url("../img/bg/@1x/3-1920.jpg")
-	@include retina(1024)
-		background-image: url("../img/bg/@2x/3-1920@2x.jpg")
+	// @include retina(1024)
+	// 	background-image: url("../img/bg/@2x/3-1920@2x.jpg")
 	&::after
 		opacity: 0
 		@include respond-at(1024px)
@@ -603,10 +593,10 @@ picture
 		background-image: none
 	@include respond-at(1440px)
 		right: 12%
-	@include retina(320)
-		background-image: url("../img/bg/@1x/3-900@2x.jpg")
-	@include retina(1024)
-		background-image: none
+	// @include retina(320)
+	// 	background-image: url("../img/bg/@1x/3-900@2x.jpg")
+	// @include retina(1024)
+	// 	background-image: none
 	&::after
 		position: absolute
 		top: 0
@@ -633,13 +623,13 @@ picture
 // Section-4
 
 .organization
-	background-image: url("../img/bg/@1x/4-900.jpg")
-	@include respond-at(900px)
-		background-image: url("../img/bg/@1x/4-1920.jpg")
-	@include retina(320)
-		background-image: url("../img/bg/@1x/4-900@2x.jpg")
-	@include retina(900)
-		background-image: url("../img/bg/@2x/4-1920@2x.jpg")
+	// background-image: url("../img/bg/@1x/4-900.jpg")
+	// @include respond-at(900px)
+	// 	background-image: url("../img/bg/@1x/4-1920.jpg")
+	// @include retina(320)
+	// 	background-image: url("../img/bg/@1x/4-900@2x.jpg")
+	// @include retina(900)
+	// 	background-image: url("../img/bg/@2x/4-1920@2x.jpg")
 
 .organization
 	.h2
@@ -723,7 +713,7 @@ picture
 			margin-bottom: rem(28)
 			font-size: rem(16)
 
-// Section 4
+// Section 5
 
 .script
 	background-color: $lavender
@@ -868,9 +858,6 @@ picture
 		opacity: 1
 		color: $accent-color
 
-.swiper-button-next:after, .swiper-button-prev:after
-	display: block
-
 // Section 6
 
 .contacts
@@ -884,16 +871,40 @@ picture
 		max-width: rem(250)
 		margin-left: auto
 		margin-right: auto
+		margin-bottom: rem(20)
 		text-align: center
+		@include respond-at(576px)
+			max-width: rem(370)
+		@include respond-at(1024px)
+			max-width: rem(780)
+			margin-bottom: rem(50)
+		@include respond-at(1440px)
+			max-width: rem(900)
 
 .form
+	display: flex
+	flex-direction: column
+	align-items: center
+	justify-content: center
+	max-width: rem(250)
+	margin-left: auto
+	margin-right: auto
+	margin-bottom: rem(40)
 	text-align: center
-	margin-bottom: rem(20)
+	@include respond-at(576px)
+		max-width: rem(300)
+	@include respond-at(768px)
+		max-width: rem(460)
+	@include respond-at(1024px)
+		max-width: rem(590)
+		flex-direction: row
+		flex-wrap: wrap
 
 .form__input
+	width: 100%
 	padding-top: 0
 	padding-bottom: rem(7)
-	font-size: rem(17)
+	font-size: rem(14)
 	color: $input-border-color
 	background-color: transparent
 	border-left-width: 0
@@ -904,21 +915,51 @@ picture
 		margin-bottom: rem(40)
 	&:last-of-type
 		margin-bottom: rem(45)
+	&:first-of-type
+		@include respond-at(1024px)
+			width: rem(273)
+			margin-right: rem(40)
+	&:nth-of-type(2)
+		@include respond-at(1024px)
+			width: rem(273)
+	&.focus-visible
+		outline: 0
+		border-bottom-color: lighten($input-border-color, 50%)
 
 .contacts__flex
 	max-width: rem(250)
 	margin-left: auto
 	margin-right: auto
+	margin-bottom: rem(20)
+	@include respond-at(576px)
+		max-width: rem(370)
+	@include respond-at(768px)
+		max-width: rem(460)
+	@include respond-at(1024px)
+		display: flex
+		flex-wrap: wrap
+		justify-content: space-between
+		align-items: center
+		max-width: rem(780)
+	@include respond-at(1920px)
+		max-width: rem(1000)
 
 .contacts__list
 	margin-bottom: rem(40)
 	padding: 0
+	@include respond-at(1024px)
+		max-width: rem(305)
+		margin-right: rem(20)
+	@include respond-at(1920px)
+		max-width: rem(480)
 
 .contacts__item
 	position: relative
 	list-style: none
 	.text
 		padding-left: rem(20)
+		@include respond-at(1920px)
+			padding-left: rem(26)
 
 .contacts__img
 	position: absolute
@@ -928,20 +969,45 @@ picture
 	height: rem(12)
 	fill: $inverse-color
 	stroke: rgba($text-color, 0.5)
+	@include respond-at(1920px)
+		width: rem(18)
+		height: rem(18)
 
 .contacts__link
 	color: $text-color
 
+.contacts__map
+	margin-bottom: rem(16)
+	@include respond-at(1024px)
+		max-width: rem(453)
+
 .policy
-	margin-bottom: rem(20)
 	font-size: rem(10)
 	color: $text-color
 
+// Page Footer
 
-
-
-
-
-
-
-
+.footer
+	display: flex
+	flex-flow: column wrap
+	justify-content: center
+	align-items: center
+	margin-top: rem(25)
+	margin-bottom: rem(30)
+	@include respond-at(1024px)
+		flex-direction: row
+		justify-content: space-between
+	.logo,
+	.socialmedia
+		margin-bottom: rem(20)
+		@include respond-at(1024px)
+			margin-bottom: 0
+	.logo
+		@include respond-at(1024px)
+			order: 2
+	.socialmedia
+		@include respond-at(1024px)
+			order: 1
+	.phone
+		@include respond-at(1024px)
+			order: 3
